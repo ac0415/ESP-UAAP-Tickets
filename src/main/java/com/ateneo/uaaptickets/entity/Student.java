@@ -1,21 +1,16 @@
 package com.ateneo.uaaptickets.entity;
 
+import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
+import javax.persistence.*;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.sun.istack.internal.NotNull;
 
 @Entity(name="student")
 public class Student {
-	
-	
+		
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column
@@ -56,10 +51,6 @@ public class Student {
 	@Column(name="contact_number2")
 	@NotNull
 	private int cellphone;
-	
-	@Column(name="email")
-	@NotNull
-	private String email;
 	
 	@Column(name="year")
 	@NotNull
@@ -115,12 +106,6 @@ public class Student {
 	public void setCellphone(int cellphone) {
 		this.cellphone = cellphone;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
 	public int getYear() {
 		return year;
 	}
@@ -150,4 +135,79 @@ public class Student {
 		this.tickets = tickets;
 	}
 
+	@Column(name="catch_phrase", nullable=false)
+	private String catchPhrase;
+	
+	@OneToOne
+	@JoinColumn(name="account_id")
+	private Account account;
+	
+	@Column(name="created_at")
+	private Date createdAt;
+	
+	@Column(name="updated_at")
+	private Date updatedAt;
+	
+	@Column(name="image_url")
+	private String imageUrl;
+
+	@Transient
+	private CommonsMultipartFile imageFile;
+
+	@Column(name="confirmation_string", unique=true)
+	@NotNull
+	private String confirmationString;
+	
+	public String getConfirmationString() {
+		return confirmationString;
+	}
+	public void setConfirmationString(String confirmationString) {
+		this.confirmationString = confirmationString;
+	}
+
+	public String getCatchPhrase() {
+		return catchPhrase;
+	}
+
+	public void setCatchPhrase(String catchPhrase) {
+		this.catchPhrase = catchPhrase;
+	}
+	public Account getAccount() {
+		return account;
+	}
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	public String getImageUrl() {
+		return imageUrl;
+	}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+	public CommonsMultipartFile getImageFile() {
+		return imageFile;
+	}
+	public void setImageFile(CommonsMultipartFile imageFile) {
+		this.imageFile = imageFile;
+	}
+
+	public Student()
+	{
+		createdAt = new Date();
+		updatedAt = new Date();
+		
+		imageUrl = "/images/bunny.jpg";
+	}
 }

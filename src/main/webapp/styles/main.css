@@ -1,0 +1,70 @@
+.errors {color: red;}
+.nav a { font-size: small; font-weight: bold; }
+.nav-dashboard {
+	background-image: url("../images/16x16-dashboard.png");
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 12px;
+	margin-left: 20px;
+}
+
+.nav-accounts {
+	background-image: url("../images/16x16-accounts.png");
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 12px;
+	margin-left: 20px;
+}
+
+.nav-ledger {
+	background-image: url("../images/16x16-generic.png");
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 12px;
+	margin-left: 20px;
+}
+
+.nav-tools {
+	background-image: url("../images/tool-box-icon.png");
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 12px;
+	margin-left: 20px;
+}
+
+.nav-settings {
+	background-image: url("../images/16x16-system.png");
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 12px;
+	margin-left: 20px;
+}
+
+.nav-admin {
+	background-image: url("../images/16x16-admin.png");
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 12px;
+	margin-left: 20px;
+}
+
+.admin-list-users {
+	background-image: url("../images/user-icon.png");
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 22px;
+}
+
+.admin-create-user {
+	background-image: url("../images/16x16-new.png");
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 22px;
+}
+
+.admin-download-db {
+	background-image: url("../images/download-db-icon.png");
+	background-position: left;
+	background-repeat: no-repeat;
+	padding-left: 22px;
+}

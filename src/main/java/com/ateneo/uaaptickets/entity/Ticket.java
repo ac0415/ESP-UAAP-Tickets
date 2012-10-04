@@ -29,8 +29,8 @@ public class Ticket {
 	private Event event;
 
 	@ManyToOne
-	@JoinColumn(name="seat_id")
-	private Seat seat;
+	@JoinColumn(name="seat_price_id")
+	private SeatPrice SeatPrice;
 
 	public Student getStudent() {
 		return student;
@@ -44,12 +44,10 @@ public class Ticket {
 	public void setEvent(Event event) {
 		this.event = event;
 	}
-	public Seat getSeat() {
-		return seat;
+	public Seat getSeatPrice() {
+		return seatPrice;
 	}
-	public void setSeat(Seat seat) {
-		this.seat = seat;
-	}
-	
-	
+	public void setSeatPrice(SeatPrice seatPrice) {
+		this.seatPrice = seatPrice;
+	}	
 }

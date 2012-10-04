@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="default_layout" template="/WEB-INF/layouts/default.jsp">
+		<put-attribute name="menu" value="menu" />
+	</definition>
+	
+	<definition name="admin_default_layout" template="/WEB-INF/layouts/admin.jsp">
+		<put-attribute name="menu" value="admin/menu" />
+		<put-attribute name="sidenav" value="admin/sidenav" />
+	</definition>
+
+</tiles-definitions>

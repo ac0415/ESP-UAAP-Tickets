@@ -1,5 +1,6 @@
 package com.ateneo.uaaptickets.entity;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -30,7 +31,7 @@ public class Event {
 	
 	@Column(name="event_date")
 	@NotNull
-	private String date;
+	private Date eventDate;
 	
 	@Column(name="event_time")
 	@NotNull
@@ -42,11 +43,11 @@ public class Event {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDate() {
-		return date;
+	public String getEventDate() {
+		return eventdate;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setEventDate(String eventDate) {
+		this.eventDate = eventDate;
 	}
 	public String getTime() {
 		return time;
