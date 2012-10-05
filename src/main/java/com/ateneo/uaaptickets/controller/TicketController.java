@@ -47,10 +47,12 @@ public class TicketController
 	public String buyForm(@PathVariable("id") int id, Principal user, Model uiModel)
 	{
 		// new Ticket and attach event
-		uiModel.addAttribute("ticket", new Ticket());
+		// uiModel.addAttribute("ticket", new Ticket());
 		Event e = eventRepository.findOne(id);
-		ticket.setEvent(e);
+		// ticket.setEvent(e);
 		
+		Ticket ticket = new Ticket();
+		ticket.setEvent(e);
 		return "ticketForm"; //redirect to choose the seat type before processing of the ticket
 	}
 
