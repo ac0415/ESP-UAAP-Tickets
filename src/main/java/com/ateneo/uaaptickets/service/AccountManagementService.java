@@ -20,7 +20,7 @@ public class AccountManagementService  implements UserDetailsService
 	private PasswordEncoder passwordEncoder;
 	
 	@Override
-	public AccountDetails loadUserByUsername(String username)
+	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException 
 	{
 		return accountRepository.findByUsername(username);

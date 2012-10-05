@@ -1,5 +1,4 @@
 package com.ateneo.uaaptickets.entity;
-import javax.persistence.*;
 
 import com.sun.istack.internal.NotNull;
 

@@ -32,12 +32,12 @@ public class StudentAccountValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", null, "Required");
 		
 		// Check for uniqueness of username
-		if(studentRepository.findByUsername(studentAccount.getUsername()) != null) {
+		if(accountRepository.findByUsername(studentAccount.getUsername()) != null) {
 			errors.rejectValue("username", null, "Username already in use! Please choose another one.");
 		}
 		
 		// Check for uniqueness of email
-		if(studentRepository.findByEmail(studentAccount.getEmail()) != null) {
+		if(accountRepository.findByEmail(studentAccount.getEmail()) != null) {
 			errors.rejectValue("email", null, "Email already used!");
 		}
 		

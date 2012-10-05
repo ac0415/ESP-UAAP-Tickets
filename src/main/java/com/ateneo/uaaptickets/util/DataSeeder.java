@@ -18,18 +18,6 @@ public class DataSeeder
 {
 	@Autowired
 	private VenueRepository venueRepository;
-	
-	@PostConstruct
-	public void run() 
-	{
-		Venue venue1 = new Venue();
-		venue1.setName("Araneta Coliseum");
-		venue1 = venueRepository.save(venue1);
-		
-		Venue venue2 = new Venue();
-		venue2.setName("MOA Arena");
-		venue2 = venueRepository.save(venue2);
-	}
 
 	@Autowired
 	private RoleRepository roleRepository;
@@ -44,6 +32,14 @@ public class DataSeeder
 		Role userRole = new Role();
 		userRole.setName("USER");
 		userRole = roleRepository.save(userRole);
+		
+		Venue venue1 = new Venue();
+		venue1.setName("Araneta Coliseum");
+		venue1 = venueRepository.save(venue1);
+		
+		Venue venue2 = new Venue();
+		venue2.setName("MOA Arena");
+		venue2 = venueRepository.save(venue2);
 	}
 }
 
