@@ -10,7 +10,8 @@ private String username;
 	private String middleName;
 	private String lastName;
 	private String catchPhrase;
-	
+	private String studentId;
+
 	public String getUsername() {
 		return username;
 	}
@@ -50,7 +51,13 @@ private String username;
 	public String getCatchPhrase() {
 		return catchPhrase;
 	}
-	public void setCatchPhrase(String catchPhrase) {
-		this.catchPhrase = catchPhrase;
+	public void setCatchPhrase(String studentId) {
+		this.studentId = studentId;
+	}
+	public String getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
 	}
 }

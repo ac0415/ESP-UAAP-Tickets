@@ -32,8 +32,8 @@ public class TicketController
 	private TicketRepository ticketRepository;
 
 	@RequestMapping(value={"/event/{id}"})
-	@PreAuthorize("hasRole('USER')")
-	public String event(@PathVariable("id") int id, Model uiModel)
+	// @PreAuthorize("hasRole('USER')")
+	public String event(@PathVariable("id") Integer id, Model uiModel)
 	{
 		Event e = eventRepository.findOne(id);
 		uiModel.addAttribute("event", e);
@@ -42,7 +42,7 @@ public class TicketController
 
 	@RequestMapping(value={"/event/{id}/buy"})
 	@PreAuthorize("hasRole('USER')")
-	public String buyForm(@PathVariable("id") int id, Principal user, Model uiModel)
+	public String buyForm(@PathVariable("id") Integer id, Principal user, Model uiModel)
 	{
 		// new Ticket and attach event
 		// uiModel.addAttribute("ticket", new Ticket());

@@ -10,7 +10,8 @@ import com.ateneo.uaaptickets.entity.StudentAccount;
 import com.ateneo.uaaptickets.repository.AccountRepository;
 import com.ateneo.uaaptickets.repository.StudentRepository;
 
-public class StudentAccountValidator {
+@Component("studentAccountValidator")
+public class StudentAccountValidator implements Validator{
 	@Autowired
 	private StudentRepository studentRepository;
 	
