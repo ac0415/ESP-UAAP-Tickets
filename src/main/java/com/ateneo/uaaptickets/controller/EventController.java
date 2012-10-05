@@ -40,13 +40,13 @@ public class EventController {
 	}
 	
 	//already in ticketController
-	@RequestMapping(value={"/event/{id}"})
-	public String event(@PathVariable("id") Integer id, Model uiModel)
-	{
-		Event e = eventRepository.findOne(id);
-		uiModel.addAttribute("event", e);
-		return "eventPage";
-	}
+	// @RequestMapping(value={"/event/{id}"})
+	// public String show(@PathVariable("id") Integer id, Model uiModel)
+	// {
+	// 	Event e = eventRepository.findOne(id);
+	// 	uiModel.addAttribute("event", e);
+	// 	return "eventPage";
+	// }
 
 	@RequestMapping(value="/create")
 	@PreAuthorize("hasRole('ADMIN')")
