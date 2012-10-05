@@ -37,18 +37,15 @@ public class Student {
 	private String lastName;
 	
 	@Column(name="middle_name")
-	@NotNull
 	private String middleName;
 	
 	@Column(name="address")
-	@NotNull
 	private String address;
 	
-	@Column(name="contact_number")
-	@NotNull
+	@Column(name="contact_number2")
 	private String telephone;
 	
-	@Column(name="contact_number2")
+	@Column(name="contact_number")
 	@NotNull
 	private int cellphone;
 	

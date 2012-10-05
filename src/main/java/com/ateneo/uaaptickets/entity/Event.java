@@ -43,10 +43,10 @@ public class Event {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getEventDate() {
-		return eventdate;
+	public Date getEventDate() {
+		return eventDate;
 	}
-	public void setEventDate(String eventDate) {
+	public void setEventDate(Date eventDate) {
 		this.eventDate = eventDate;
 	}
 	public String getTime() {

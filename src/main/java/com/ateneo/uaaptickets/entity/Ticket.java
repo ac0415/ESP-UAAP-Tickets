@@ -2,6 +2,8 @@ package com.ateneo.uaaptickets.entity;
 
 import javax.persistence.*;
 
+import java.util.Date;
+
 import com.sun.istack.internal.NotNull;
 
 @Entity(name="ticket")
@@ -30,7 +32,10 @@ public class Ticket {
 
 	@ManyToOne
 	@JoinColumn(name="seat_price_id")
-	private SeatPrice SeatPrice;
+	private SeatPrice seatPrice;
+
+	@Column(name="created_at")
+	private Date createdAt;
 
 	public Student getStudent() {
 		return student;
@@ -44,10 +49,18 @@ public class Ticket {
 	public void setEvent(Event event) {
 		this.event = event;
 	}
-	public Seat getSeatPrice() {
+	public SeatPrice getSeatPrice() {
 		return seatPrice;
 	}
 	public void setSeatPrice(SeatPrice seatPrice) {
 		this.seatPrice = seatPrice;
-	}	
+	}
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+		
 }

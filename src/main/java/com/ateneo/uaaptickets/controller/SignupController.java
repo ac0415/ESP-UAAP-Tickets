@@ -1,5 +1,10 @@
 package com.ateneo.uaaptickets.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ateneo.uaaptickets.entity.Account;
+import com.ateneo.uaaptickets.entity.Student;
+import com.ateneo.uaaptickets.entity.StudentAccount;
 import com.ateneo.uaaptickets.repository.*;
+import com.ateneo.uaaptickets.service.AccountManagementService;
+import com.ateneo.uaaptickets.util.*;
 
 @Controller
 @RequestMapping("/signup")
@@ -29,6 +39,9 @@ public class SignupController {
 
 	@Autowired
 	private VenueRepository venueRepository;
+
+	@Autowired
+	private RoleRepository roleRepository;
 
 	@Autowired
 	private AccountManagementService accountManagementService;
@@ -59,9 +72,10 @@ public class SignupController {
 		
 		// Build the user
 		Account account = new Account();
-		account.setUsername(userAccount.getUsername());
-		account.setPassword(userAccount.getPassword());
-		account.setEmail(userAccount.getEmail());
+		account.setUsername(studentAccount.getUsername());
+		account.setPassword(studentAccount.getPassword());
+		account.setEmail(studentAccount.getEmail());
+		account.setRole(roleRepository.findByName("USER"));
 		account = accountManagementService.saveNewUser(account);
 		
 		
@@ -75,7 +89,7 @@ public class SignupController {
 		// Set the confirmation string.
 		// TODO: Handle errors properly
 		try {
-			student.setConfirmationString(AeSimpleMD5.MD5(user.getUsername()));
+			student.setConfirmationString(AeSimpleMD5.MD5(account.getUsername()));
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,7 +99,7 @@ public class SignupController {
 		}
 		
 		student.setAccount(account);
-		student = accountRepository.save(student);
+		student = studentRepository.save(student);
 		
 	
 		redirectAttributes.addFlashAttribute("SUCCESS_MESSAGE", "Account was successfully created! You may now start using UaapTickets. Thank you ^_^");
@@ -97,7 +111,7 @@ public class SignupController {
 	public String confirm(@PathVariable("confirmationString") String confirmationString, 
 			RedirectAttributes redirectAttributes)
 	{
-		Student student = accountRepository.findByConfirmationString(confirmationString);
+		Student student = studentRepository.findByConfirmationString(confirmationString);
 		
 		if(student != null) {
 			Account account = student.getAccount();

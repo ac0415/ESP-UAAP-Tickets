@@ -1,4 +1,4 @@
-package com.foo.tweeter.util;
+package com.ateneo.uaaptickets.util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

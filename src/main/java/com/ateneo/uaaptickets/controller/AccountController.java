@@ -12,6 +12,8 @@ import com.ateneo.uaaptickets.entity.Student;
 import com.ateneo.uaaptickets.repository.StudentRepository;
 import com.ateneo.uaaptickets.repository.AccountRepository;
 import com.ateneo.uaaptickets.service.AccountManagementService;
+
+@Controller
 public class AccountController{
 
 	@Autowired
@@ -23,11 +25,11 @@ public class AccountController{
 	@Autowired
 	private StudentRepository studentRepository;
 	
-
 	@RequestMapping("/profile")
+	@PreAuthorize("hasRole('USER')")
 	public String profile(Model uiModel, Principal principal)
 	{
-		Student student = studentRepository.findByUser(accountRepository.findByUsername(principal.getName()));
+		Student student = studentRepository.findByAccount(accountRepository.findByUsername(principal.getName()));
 		uiModel.addAttribute("student", student);
 		
 		return "student/profile";

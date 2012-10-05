@@ -47,7 +47,18 @@ public class Account implements UserDetails{
 	@Column(name="is_enabled")
     private Boolean isEnabled;
 	
+    @OneToOne
+	@JoinColumn(name="role_id")
+	private Role role;
+	
+	public Role getRole() {
+		return role;
+	}
 
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
 	public Account() {
 		isAccountExpired = false;
 		isAccountLocked = false;
@@ -117,6 +128,14 @@ public class Account implements UserDetails{
 		this.isEnabled = isEnabled;
 	}
 
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		List<Role> authorities = new ArrayList<Role>();
+		authorities.add(getRole());
+		
+		return authorities;
+	}
+	
 	@Override
 	public boolean isAccountNonExpired() {
 		return !isAccountExpired;
